@@ -1,0 +1,79 @@
+T4 — HSRP devralması
+DSW1#show standby brief
+                     P indicates configured to preempt.
+                     |
+Interface   Grp  Pri P State   Active          Standby         Virtual IP
+Vl10        10   110 P Active  local           172.16.10.3     172.16.10.1
+Vl20        20   100   Standby 172.16.20.3     local           172.16.20.1
+Vl30        30   110 P Active  local           172.16.30.3     172.16.30.1
+Vl40        40   100   Standby 172.16.40.3     local           172.16.40.1
+Vl50        50   110 P Active  local           172.16.50.3     172.16.50.1
+DSW1#
+===========================================================================
+DSW2#show standby brief
+                     P indicates configured to preempt.
+                     |
+Interface   Grp  Pri P State   Active          Standby         Virtual IP
+Vl10        10   100   Standby 172.16.10.2     local           172.16.10.1
+Vl20        20   110 P Active  local           172.16.20.2     172.16.20.1
+Vl30        30   100   Standby 172.16.30.2     local           172.16.30.1
+Vl40        40   110 P Active  local           172.16.40.2     172.16.40.1
+Vl50        50   100   Standby 172.16.50.2     local           172.16.50.1
+DSW2#
+=============================================================================
+ASW1#show spanning-tree vlan 10 | begin Interface
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Gi0/2               Desg FWD 4         128.3    P2p Edge 
+Po10                Root FWD 3         128.65   P2p 
+Po11                Altn BLK 3         128.66   P2p 
+
+
+ASW1#
+===========================================================================
+PC1> ping 172.16.20.11 -c 200 -i 1
+
+84 bytes from 172.16.20.11 icmp_seq=1 ttl=63 time=12.906 ms
+84 bytes from 172.16.20.11 icmp_seq=2 ttl=63 time=4.953 ms
+84 bytes from 172.16.20.11 icmp_seq=3 ttl=63 time=5.168 ms
+84 bytes from 172.16.20.11 icmp_seq=4 ttl=63 time=3.991 ms
+84 bytes from 172.16.20.11 icmp_seq=5 ttl=63 time=4.071 ms
+84 bytes from 172.16.20.11 icmp_seq=6 ttl=63 time=5.277 ms
+84 bytes from 172.16.20.11 icmp_seq=7 ttl=63 time=4.657 ms
+84 bytes from 172.16.20.11 icmp_seq=8 ttl=63 time=3.833 ms
+84 bytes from 172.16.20.11 icmp_seq=9 ttl=63 time=4.905 ms
+84 bytes from 172.16.20.11 icmp_seq=10 ttl=63 time=4.098 ms
+84 bytes from 172.16.20.11 icmp_seq=11 ttl=63 time=4.648 ms
+84 bytes from 172.16.20.11 icmp_seq=12 ttl=63 time=5.251 ms
+84 bytes from 172.16.20.11 icmp_seq=13 ttl=63 time=4.206 ms
+.
+.
+.
+==========================================================================
+DSW2#show standby brief
+                     P indicates configured to preempt.
+                     |
+Interface   Grp  Pri P State   Active          Standby         Virtual IP
+Vl10        10   100   Standby 172.16.10.2     local           172.16.10.1
+Vl20        20   110 P Active  local           172.16.20.2     172.16.20.1
+Vl30        30   100   Standby 172.16.30.2     local           172.16.30.1
+Vl40        40   110 P Active  local           172.16.40.2     172.16.40.1
+Vl50        50   100   Standby 172.16.50.2     local           172.16.50.1
+DSW2#show logging | include HSRP-5-STATECHANGE
+DSW2#show standby vlan 10
+Vlan10 - Group 10 (version 2)
+  State is Standby
+    1 state change, last state change 03:27:01
+  Virtual IP address is 172.16.10.1
+  Active virtual MAC address is 0000.0c9f.f00a (MAC Not In Use)
+    Local virtual MAC address is 0000.0c9f.f00a (v2 default)
+  Hello time 3 sec, hold time 10 sec
+    Next hello sent in 2.176 secs
+  Preemption disabled
+  Active router is 172.16.10.2, priority 110 (expires in 8.576 sec)
+    MAC address is 0cf6.639f.800a
+  Standby router is local
+  Priority 100 (default 100)
+  Group name is "hsrp-Vl10-10" (default)
+DSW2#
+

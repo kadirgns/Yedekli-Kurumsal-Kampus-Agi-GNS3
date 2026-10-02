@@ -1,0 +1,51 @@
+T2 — Port security ihlali
+ROGUE> ip 172.16.20.99/24 172.16.20.1
+Checking for duplicate address...
+ROGUE : 172.16.20.99 255.255.255.0 gateway 172.16.20.1
+
+ROGUE> ping 172.16.20.1
+
+host (172.16.20.1) not reachable
+
+ROGUE> 
+
+
+==================================================================================
+ASW1#show mac address-table interface GigabitEthernet0/3
+          Mac Address Table
+-------------------------------------------
+
+Vlan    Mac Address       Type        Ports
+----    -----------       --------    -----
+  20    0050.7966.6801    STATIC      Gi0/3 
+Total Mac Addresses for this criterion: 1
+ASW1#show port-security interface GigabitEthernet0/3
+Port Security              : Enabled
+Port Status                : Secure-up
+Violation Mode             : Restrict
+Aging Time                 : 10 mins
+Aging Type                 : Inactivity
+SecureStatic Address Aging : Disabled
+Maximum MAC Addresses      : 1
+Total MAC Addresses        : 1
+Configured MAC Addresses   : 0
+Sticky MAC Addresses       : 1
+Last Source Address:Vlan   : 0050.7966.680b:20
+Security Violation Count   : 7
+
+ASW1#show port-security address
+               Secure Mac Address Table
+-----------------------------------------------------------------------------
+Vlan    Mac Address       Type                          Ports   Remaining Age
+                                                                   (mins)    
+----    -----------       ----                          -----   -------------
+  10    0050.7966.6800    SecureSticky                  Gi0/2        -
+  20    0050.7966.6801    SecureSticky                  Gi0/3        -
+  30    0050.7966.6802    SecureSticky                  Gi1/0        -
+  50    0050.7966.6803    SecureSticky                  Gi1/1        -
+-----------------------------------------------------------------------------
+Total Addresses in System (excluding one mac per port)     : 0
+Max Addresses limit in System (excluding one mac per port) : 4096
+ASW1#show logging | include PSECURE
+
+

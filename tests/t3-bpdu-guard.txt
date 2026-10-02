@@ -1,0 +1,64 @@
+T3 — BPDU Guard
+
+ASW1#show spanning-tree interface GigabitEthernet1/2 portfast
+no spanning tree info available for GigabitEthernet1/2 
+
+ASW1#
+================================================================================
+ASW1#show interfaces status err-disabled
+
+Port      Name               Status       Reason               Err-disabled Vlans
+Gi1/2                        err-disabled bpduguard
+ASW1#show interfaces GigabitEthernet1/2 | include line protocol
+GigabitEthernet1/2 is down, line protocol is down (err-disabled) 
+ASW1#show logging | include BPDUGUARD|ERR_DISABLE
+*Oct  2 15:03:37.138: %SPANTREE-2-BLOCK_BPDUGUARD: Received BPDU on port GigabitEthernet1/2 with BPDU Guard enabled. Disabling port.
+*Oct  2 15:03:37.138: %PM-4-ERR_DISABLE: bpduguard error detected on Gi1/2, putting Gi1/2 in err-disable state
+ASW1#
+===============================================================================
+ASW1#show errdisable recovery
+ErrDisable Reason            Timer Status
+-----------------            --------------
+arp-inspection               Disabled
+bpduguard                    Enabled
+channel-misconfig (STP)      Disabled
+dhcp-rate-limit              Disabled
+dtp-flap                     Disabled
+gbic-invalid                 Disabled
+inline-power                 Disabled
+l2ptguard                    Disabled
+link-flap                    Disabled
+mac-limit                    Disabled
+link-monitor-failure         Disabled
+loopback                     Disabled
+oam-remote-failure           Disabled
+pagp-flap                    Disabled
+port-mode-failure            Disabled
+pppoe-ia-rate-limit          Disabled
+psecure-violation            Enabled
+security-violation           Disabled
+sfp-config-mismatch          Disabled
+storm-control                Disabled
+udld                         Disabled
+          
+Interface       Errdisable reason       Time left(sec)
+---------       -----------------       --------------
+unicast-flood                Disabled
+vmps                         Disabled
+psp                          Disabled
+dual-active-recovery         Disabled
+evc-lite input mapping fa    Disabled
+Recovery command: "clear     Disabled
+
+Timer interval: 300 seconds
+
+Interfaces that will be enabled at the next timeout:
+
+Interface       Errdisable reason       Time left(sec)
+---------       -----------------       --------------
+Gi1/2                  bpduguard          171
+
+ASW1# show logging | include RECOVERY
+ASW1#
+
+

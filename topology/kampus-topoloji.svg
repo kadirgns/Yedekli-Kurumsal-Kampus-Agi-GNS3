@@ -1,0 +1,246 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1420 850" width="1420" height="850" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <style>
+      .bg{fill:#FBFCFB}
+      .ink{fill:#131C1E}
+      .mut{fill:#66787A}
+      .mono{font-family:ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace}
+      .dev{fill:#FFFFFF;stroke:#131C1E;stroke-width:1.6}
+      .lnk{stroke-width:1.5;fill:none;stroke:#9AA7A8}
+      .a0{stroke:#6B4FA8;stroke-width:3;fill:none}
+      .a10{stroke:#0E6E78;stroke-width:2.6;fill:none}
+      .a20{stroke:#B35418;stroke-width:2.6;fill:none}
+      .po{stroke:#0E6E78;stroke-width:5;fill:none}
+      .upl{stroke:#0E6E78;stroke-width:3;fill:none}
+      .net{stroke:#66787A;stroke-width:2.4;fill:none;stroke-dasharray:6 4}
+      .zone{fill:#F2F6F5;stroke:#C4D1D0;stroke-width:1.4;stroke-dasharray:5 4}
+      .lbl{font-size:12px}
+      .port{font-size:10.5px;fill:#66787A}
+      .tiny{font-size:9.5px;fill:#66787A}
+      .h1{font-size:19px;font-weight:700}
+      .h2{font-size:11px;font-weight:700;letter-spacing:.12em}
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1420" height="850"/>
+
+  <text class="h2 mut mono" x="60" y="42">CAPSTONE PROJE</text>
+  <text class="h1 ink" x="60" y="70">Yedekli Kurumsal Kampüs Ağı — Kocaeli Merkez + İstanbul Şube</text>
+  <line x1="60" y1="84" x2="1360" y2="84" stroke="#DCE3E2" stroke-width="1.5"/>
+
+  <!-- bolgeler -->
+  <rect class="zone" x="46" y="400" width="372" height="240" rx="4"/>
+  <text class="h2 mut" x="58" y="420">A BLOK</text>
+
+  <rect class="zone" x="426" y="400" width="544" height="240" rx="4"/>
+  <text class="h2 mut" x="438" y="420">B BLOK</text>
+
+  <rect class="zone" x="986" y="96" width="372" height="544" rx="4"/>
+  <text class="h2 mut" x="998" y="116">İSTANBUL ŞUBE · AREA 20</text>
+
+  <text class="h2 mut" x="60" y="232">MERKEZ · KOCAELİ · AREA 10</text>
+
+  <!-- ISP / R1 / R2 -->
+  <rect class="dev" x="60" y="120" width="150" height="52" rx="3" stroke="#66787A" stroke-width="2"/>
+  <text class="ink" x="135" y="143" text-anchor="middle" font-size="15" font-weight="700">ISP</text>
+  <text class="port mono" x="135" y="160" text-anchor="middle">8.8.8.8 loopback</text>
+
+  <rect class="dev" x="360" y="120" width="160" height="52" rx="3" stroke="#6B4FA8" stroke-width="2"/>
+  <text class="ink" x="440" y="143" text-anchor="middle" font-size="15" font-weight="700">R1</text>
+  <text class="port mono" x="440" y="160" text-anchor="middle">7200 · ABR 0/10</text>
+
+  <rect class="dev" x="1102" y="128" width="140" height="52" rx="3" stroke="#6B4FA8" stroke-width="2"/>
+  <text class="ink" x="1172" y="151" text-anchor="middle" font-size="15" font-weight="700">R2</text>
+  <text class="port mono" x="1172" y="168" text-anchor="middle">3745 · ABR 0/20</text>
+
+  <line class="net" x1="210" y1="146" x2="360" y2="146"/>
+  <text class="port mono" x="285" y="138" text-anchor="middle">203.0.113.0/30</text>
+  <text class="port mono" x="285" y="164" text-anchor="middle" fill="#A8342A">NAT / PAT siniri</text>
+
+  <line class="a0" x1="520" y1="154" x2="1102" y2="154"/>
+  <text class="port mono" x="811" y="146" text-anchor="middle" fill="#4A3378">10.1.0.8/30 · AREA 0 · WAN</text>
+
+  <!-- R1 -> DSW -->
+  <path class="a10" d="M 410 172 L 410 212 L 340 212 L 340 250"/>
+  <path class="a10" d="M 470 172 L 470 212 L 660 212 L 660 250"/>
+  <text class="port mono" x="372" y="206" text-anchor="middle" fill="#0A555D">10.1.0.0/30</text>
+  <text class="port mono" x="566" y="206" text-anchor="middle" fill="#0A555D">10.1.0.4/30</text>
+
+  <!-- DSW1 / DSW2 -->
+  <rect class="dev" x="260" y="250" width="160" height="52" rx="3" stroke="#0E6E78" stroke-width="2"/>
+  <text class="ink" x="340" y="273" text-anchor="middle" font-size="15" font-weight="700">DSW1</text>
+  <text class="port mono" x="340" y="290" text-anchor="middle">HSRP akt. 10/30/50</text>
+
+  <rect class="dev" x="580" y="250" width="160" height="52" rx="3" stroke="#0E6E78" stroke-width="2"/>
+  <text class="ink" x="660" y="273" text-anchor="middle" font-size="15" font-weight="700">DSW2</text>
+  <text class="port mono" x="660" y="290" text-anchor="middle">HSRP akt. 20/40</text>
+
+  <line class="po" x1="420" y1="276" x2="580" y2="276"/>
+  <rect x="432" y="263" width="136" height="26" rx="3" fill="#E4F1F2" stroke="#0E6E78" stroke-width="1"/>
+  <text class="port mono" x="500" y="280" text-anchor="middle" fill="#0A555D">Po1 · LACP</text>
+
+  <!-- ASW uplinkleri -->
+  <path class="upl" d="M 190 420 L 300 302"/>
+  <path class="upl" d="M 262 420 L 600 302"/>
+  <path class="upl" d="M 658 420 L 380 302"/>
+  <path class="upl" d="M 730 420 L 700 302"/>
+  <rect x="224" y="348" width="42" height="18" rx="3" fill="#FBFCFB" stroke="#C4D1D0" stroke-width="0.8"/>
+  <text class="tiny mono" x="245" y="361" text-anchor="middle" fill="#0A555D">Po10</text>
+  <rect x="410" y="348" width="42" height="18" rx="3" fill="#FBFCFB" stroke="#C4D1D0" stroke-width="0.8"/>
+  <text class="tiny mono" x="431" y="361" text-anchor="middle" fill="#0A555D">Po11</text>
+  <rect x="498" y="348" width="42" height="18" rx="3" fill="#FBFCFB" stroke="#C4D1D0" stroke-width="0.8"/>
+  <text class="tiny mono" x="519" y="361" text-anchor="middle" fill="#0A555D">Po20</text>
+  <rect x="694" y="348" width="42" height="18" rx="3" fill="#FBFCFB" stroke="#C4D1D0" stroke-width="0.8"/>
+  <text class="tiny mono" x="715" y="361" text-anchor="middle" fill="#0A555D">Po21</text>
+
+  <!-- ASW1 / ASW2 -->
+  <rect class="dev" x="158" y="420" width="140" height="52" rx="3"/>
+  <text class="ink" x="228" y="443" text-anchor="middle" font-size="15" font-weight="700">ASW1</text>
+  <text class="port mono" x="228" y="460" text-anchor="middle">erisim</text>
+
+  <rect class="dev" x="624" y="420" width="140" height="52" rx="3"/>
+  <text class="ink" x="694" y="443" text-anchor="middle" font-size="15" font-weight="700">ASW2</text>
+  <text class="port mono" x="694" y="460" text-anchor="middle">erisim</text>
+
+  <!-- ASW3 -->
+  <path class="a20" d="M 1172 180 L 1172 420"/>
+  <text class="port mono" x="1182" y="290" text-anchor="start" fill="#8A3F11">trunk · VLAN 110,120</text>
+  <text class="port mono" x="1182" y="305" text-anchor="start" fill="#8A3F11">R2 alt arayuzleri</text>
+
+  <rect class="dev" x="1102" y="420" width="140" height="52" rx="3" stroke="#B35418" stroke-width="2"/>
+  <text class="ink" x="1172" y="443" text-anchor="middle" font-size="15" font-weight="700">ASW3</text>
+  <text class="port mono" x="1172" y="460" text-anchor="middle">sube erisim</text>
+
+  <!-- host baglanti buslari -->
+  <path class="lnk" d="M 228 472 L 228 525"/>
+  <line class="lnk" x1="99" y1="525" x2="357" y2="525"/>
+  <line class="lnk" x1="99" y1="525" x2="99" y2="560"/>
+  <line class="lnk" x1="185" y1="525" x2="185" y2="560"/>
+  <line class="lnk" x1="271" y1="525" x2="271" y2="560"/>
+  <line class="lnk" x1="357" y1="525" x2="357" y2="560"/>
+
+  <path class="lnk" d="M 694 472 L 694 525"/>
+  <line class="lnk" x1="479" y1="525" x2="909" y2="525"/>
+  <line class="lnk" x1="479" y1="525" x2="479" y2="560"/>
+  <line class="lnk" x1="565" y1="525" x2="565" y2="560"/>
+  <line class="lnk" x1="651" y1="525" x2="651" y2="560"/>
+  <line class="lnk" x1="737" y1="525" x2="737" y2="560"/>
+  <line class="lnk" x1="823" y1="525" x2="823" y2="560"/>
+  <line class="lnk" x1="909" y1="525" x2="909" y2="560"/>
+
+  <path class="lnk" d="M 1172 472 L 1172 525"/>
+  <line class="lnk" x1="1039" y1="525" x2="1297" y2="525"/>
+  <line class="lnk" x1="1039" y1="525" x2="1039" y2="560"/>
+  <line class="lnk" x1="1125" y1="525" x2="1125" y2="560"/>
+  <line class="lnk" x1="1211" y1="525" x2="1211" y2="560"/>
+  <line class="lnk" x1="1297" y1="525" x2="1297" y2="560"/>
+
+  <!-- A BLOK hostlari -->
+  <g>
+    <rect class="dev" x="60" y="560" width="78" height="62" rx="3" stroke="#1D6FA3"/>
+    <text class="ink" x="99" y="580" text-anchor="middle" font-size="12" font-weight="700">PC1</text>
+    <text class="tiny mono" x="99" y="596" text-anchor="middle" fill="#1D6FA3">VLAN 10</text>
+    <text class="tiny mono" x="99" y="611" text-anchor="middle">.10.11</text>
+  </g>
+  <g>
+    <rect class="dev" x="146" y="560" width="78" height="62" rx="3" stroke="#1D6FA3"/>
+    <text class="ink" x="185" y="580" text-anchor="middle" font-size="12" font-weight="700">PC2</text>
+    <text class="tiny mono" x="185" y="596" text-anchor="middle" fill="#1D6FA3">VLAN 20</text>
+    <text class="tiny mono" x="185" y="611" text-anchor="middle">.20.11</text>
+  </g>
+  <g>
+    <rect class="dev" x="232" y="560" width="78" height="62" rx="3" stroke="#1D6FA3"/>
+    <text class="ink" x="271" y="580" text-anchor="middle" font-size="12" font-weight="700">PC3</text>
+    <text class="tiny mono" x="271" y="596" text-anchor="middle" fill="#1D6FA3">VLAN 30</text>
+    <text class="tiny mono" x="271" y="611" text-anchor="middle">.30.11</text>
+  </g>
+  <g>
+    <rect class="dev" x="318" y="560" width="78" height="62" rx="3" stroke="#66787A"/>
+    <text class="ink" x="357" y="580" text-anchor="middle" font-size="12" font-weight="700">PC4</text>
+    <text class="tiny mono" x="357" y="596" text-anchor="middle">VLAN 50</text>
+    <text class="tiny mono" x="357" y="611" text-anchor="middle">.50.11</text>
+  </g>
+
+  <!-- B BLOK hostlari -->
+  <g>
+    <rect class="dev" x="440" y="560" width="78" height="62" rx="3" stroke="#1D6FA3"/>
+    <text class="ink" x="479" y="580" text-anchor="middle" font-size="12" font-weight="700">PC5</text>
+    <text class="tiny mono" x="479" y="596" text-anchor="middle" fill="#1D6FA3">VLAN 10</text>
+    <text class="tiny mono" x="479" y="611" text-anchor="middle">.10.12</text>
+  </g>
+  <g>
+    <rect class="dev" x="526" y="560" width="78" height="62" rx="3" stroke="#1D6FA3"/>
+    <text class="ink" x="565" y="580" text-anchor="middle" font-size="12" font-weight="700">PC6</text>
+    <text class="tiny mono" x="565" y="596" text-anchor="middle" fill="#1D6FA3">VLAN 20</text>
+    <text class="tiny mono" x="565" y="611" text-anchor="middle">.20.12</text>
+  </g>
+  <g>
+    <rect class="dev" x="612" y="560" width="78" height="62" rx="3" stroke="#1D6FA3"/>
+    <text class="ink" x="651" y="580" text-anchor="middle" font-size="12" font-weight="700">PC7</text>
+    <text class="tiny mono" x="651" y="596" text-anchor="middle" fill="#1D6FA3">VLAN 30</text>
+    <text class="tiny mono" x="651" y="611" text-anchor="middle">.30.12</text>
+  </g>
+  <g>
+    <rect class="dev" x="698" y="560" width="78" height="62" rx="3" stroke="#66787A"/>
+    <text class="ink" x="737" y="580" text-anchor="middle" font-size="12" font-weight="700">PC8</text>
+    <text class="tiny mono" x="737" y="596" text-anchor="middle">VLAN 50</text>
+    <text class="tiny mono" x="737" y="611" text-anchor="middle">.50.12</text>
+  </g>
+  <g>
+    <rect class="dev" x="784" y="560" width="78" height="62" rx="3" stroke="#2F7A50" stroke-width="2"/>
+    <text class="ink" x="823" y="580" text-anchor="middle" font-size="12" font-weight="700">SRV1</text>
+    <text class="tiny mono" x="823" y="596" text-anchor="middle" fill="#2F7A50">VLAN 40</text>
+    <text class="tiny mono" x="823" y="611" text-anchor="middle">.40.10</text>
+  </g>
+  <g>
+    <rect class="dev" x="870" y="560" width="78" height="62" rx="3" stroke="#2F7A50" stroke-width="2"/>
+    <text class="ink" x="909" y="580" text-anchor="middle" font-size="12" font-weight="700">SRV2</text>
+    <text class="tiny mono" x="909" y="596" text-anchor="middle" fill="#2F7A50">VLAN 40</text>
+    <text class="tiny mono" x="909" y="611" text-anchor="middle">.40.11</text>
+  </g>
+
+  <!-- SUBE hostlari -->
+  <g>
+    <rect class="dev" x="1000" y="560" width="78" height="62" rx="3" stroke="#1D6FA3"/>
+    <text class="ink" x="1039" y="580" text-anchor="middle" font-size="12" font-weight="700">PC9</text>
+    <text class="tiny mono" x="1039" y="596" text-anchor="middle" fill="#1D6FA3">VLAN 110</text>
+    <text class="tiny mono" x="1039" y="611" text-anchor="middle">.110.11</text>
+  </g>
+  <g>
+    <rect class="dev" x="1086" y="560" width="78" height="62" rx="3" stroke="#1D6FA3"/>
+    <text class="ink" x="1125" y="580" text-anchor="middle" font-size="12" font-weight="700">PC10</text>
+    <text class="tiny mono" x="1125" y="596" text-anchor="middle" fill="#1D6FA3">VLAN 110</text>
+    <text class="tiny mono" x="1125" y="611" text-anchor="middle">.110.12</text>
+  </g>
+  <g>
+    <rect class="dev" x="1172" y="560" width="78" height="62" rx="3" stroke="#1D6FA3"/>
+    <text class="ink" x="1211" y="580" text-anchor="middle" font-size="12" font-weight="700">PC11</text>
+    <text class="tiny mono" x="1211" y="596" text-anchor="middle" fill="#1D6FA3">VLAN 110</text>
+    <text class="tiny mono" x="1211" y="611" text-anchor="middle">.110.13</text>
+  </g>
+  <g>
+    <rect class="dev" x="1258" y="560" width="78" height="62" rx="3" stroke="#2F7A50" stroke-width="2"/>
+    <text class="ink" x="1297" y="580" text-anchor="middle" font-size="12" font-weight="700">SRV3</text>
+    <text class="tiny mono" x="1297" y="596" text-anchor="middle" fill="#2F7A50">VLAN 120</text>
+    <text class="tiny mono" x="1297" y="611" text-anchor="middle">.120.10</text>
+  </g>
+
+  <text class="h2 mut mono" x="60" y="692">OZELLIKLER</text>
+
+  <g transform="translate(60,706)">
+    <rect x="0" y="0" width="412" height="30" rx="3" fill="#E4F1F2" stroke="#0E6E78" stroke-width="1.2"/>
+    <text class="lbl mono" x="14" y="20" fill="#0A555D">HSRPv2 · LACP EtherChannel · Rapid-PVST+</text>
+  </g>
+  <g transform="translate(494,706)">
+    <rect x="0" y="0" width="412" height="30" rx="3" fill="#F0ECF8" stroke="#6B4FA8" stroke-width="1.2"/>
+    <text class="lbl mono" x="14" y="20" fill="#4A3378">OSPF 0/10/20 · DHCP relay · NAT/PAT</text>
+  </g>
+  <g transform="translate(928,706)">
+    <rect x="0" y="0" width="432" height="30" rx="3" fill="#FAEDE4" stroke="#B35418" stroke-width="1.2"/>
+    <text class="lbl mono" x="14" y="20" fill="#8A3F11">Extended ACL · port-security · BPDU Guard · SSHv2</text>
+  </g>
+
+  <text class="lbl mut" x="60" y="770">9 ag cihazi · 14 host · 7 VLAN · iki lokasyon. Her kullanici VLAN'i iki bloga birden yayildi:</text>
+  <text class="lbl mut" x="60" y="788">PC1 ile PC5 ayni VLAN'da ama farkli switch'te — trunk ve EtherChannel'in calistiginin kaniti.</text>
+  <text class="lbl mut" x="60" y="806">DSW1 veya bir uplink kapatildiginda HSRP ve Rapid-PVST+ devralir; kesinti saniyeler icinde kapanir.</text>
+</svg>
