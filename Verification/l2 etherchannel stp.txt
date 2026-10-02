@@ -1,0 +1,130 @@
+l2-etherchannel-stp
+
+DSW1#show cdp neighbors
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater, P - Phone, 
+                  D - Remote, C - CVTA, M - Two-port Mac Relay 
+
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+ASW1.kampus.local
+                 Gig 3/0           129             R S I            Gig 3/0
+ASW1.kampus.local
+                 Gig 0/2           166             R S I            Gig 0/0
+ASW2.kampus.local
+                 Gig 0/3           156             R S I            Gig 0/1
+ASW2.kampus.local
+                 Gig 3/1           143             R S I            Gig 3/1
+DSW2.kampus.local
+                 Gig 0/1           170             R S I            Gig 0/1
+DSW2.kampus.local
+                 Gig 2/0           138             R S I            Gig 2/0
+R1.kampus.local  Gig 0/0           165              R B   7206VXR   Fas 1/0
+
+Total cdp entries displayed : 7
+DSW1#
+================================================================================
+DSW2#show cdp neighbors
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater, P - Phone, 
+                  D - Remote, C - CVTA, M - Two-port Mac Relay 
+
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+ASW1.kampus.local
+                 Gig 3/1           149             R S I            Gig 3/1
+ASW1.kampus.local
+                 Gig 0/3           136             R S I            Gig 0/1
+ASW2.kampus.local
+                 Gig 3/0           162             R S I            Gig 3/0
+ASW2.kampus.local
+                 Gig 0/2           126             R S I            Gig 0/0
+DSW1.kampus.local
+                 Gig 0/1           162             R S I            Gig 0/1
+DSW1.kampus.local
+                 Gig 2/0           173             R S I            Gig 2/0
+R1.kampus.local  Gig 0/0           167              R B   7206VXR   Fas 1/1
+
+Total cdp entries displayed : 7
+DSW2#
+==========================================================================
+ASW1#show cdp neighbors
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater, P - Phone, 
+                  D - Remote, C - CVTA, M - Two-port Mac Relay 
+
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+DSW1.kampus.local
+                 Gig 0/0           165             R S I            Gig 0/2
+DSW1.kampus.local
+                 Gig 3/0           168             R S I            Gig 3/0
+DSW2.kampus.local
+                 Gig 0/1           176             R S I            Gig 0/3
+DSW2.kampus.local
+                 Gig 3/1           142             R S I            Gig 3/1
+
+Total cdp entries displayed : 4
+ASW1#
+================================================================================
+ASW2#show cdp neighbors
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater, P - Phone, 
+                  D - Remote, C - CVTA, M - Two-port Mac Relay 
+
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+DSW1.kampus.local
+                 Gig 3/1           135             R S I            Gig 3/1
+DSW1.kampus.local
+                 Gig 0/1           149             R S I            Gig 0/3
+DSW2.kampus.local
+                 Gig 3/0           165             R S I            Gig 3/0
+DSW2.kampus.local
+                 Gig 0/0           140             R S I            Gig 0/2
+
+Total cdp entries displayed : 4
+ASW2#
+
+=================================================================================
+ASW3#show cdp neighbors
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater, P - Phone, 
+                  D - Remote, C - CVTA, M - Two-port Mac Relay 
+
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+R2               Gig 0/0           176             R S I  3745      Fas 0/1
+
+Total cdp entries displayed : 1
+ASW3#
+*Oct  2 10:42:28.323: %CDP-4-DUPLEX_MISMATCH: duplex mismatch discovered on GigabitEthernet0/0 (not half duplex), with R2 FastEthernet0/1 (half duplex).
+ASW3#
+===============================================================================
+R1#show cdp neighbors
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater, P - Phone, 
+                  D - Remote, C - CVTA, M - Two-port Mac Relay 
+
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+DSW1.kampus.local
+                 Fas 1/0           139             R S I            Gig 0/0
+DSW2.kampus.local
+                 Fas 1/1           145             R S I            Gig 0/0
+ISP.kampus.local Fas 0/0           123             R S I  2691      Fas 0/0
+R2               Fas 2/0           174             R S I  3745      Fas 0/0
+R1#
+==============================================================================
+R2#show cdp neighbors
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater
+
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+ASW3.kampus.local
+                 Fas 0/1            179        R S I                Gig 0/0
+R1.kampus.local  Fas 0/0            171         R B       7206VXR   Fas 2/0
+R2#
+===============================================================================
+ISP#show cdp neighbors
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater
+
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+R1.kampus.local  Fas 0/0            139          R B      7206VXR   Fas 0/0
+ISP#
+==============================================================================

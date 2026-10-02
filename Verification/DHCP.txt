@@ -1,0 +1,69 @@
+DHCP
+
+dhcp
+DORA IP 172.16.50.21/24 GW 172.16.50.1
+
+PC4> 
+============================================================================
+dhcp
+DORA IP 172.16.20.21/24 GW 172.16.20.1
+
+PC2> 
+===============================================================================
+R1#show ip dhcp binding
+Bindings from all pools not associated with VRF:
+IP address          Client-ID/	 	    Lease expiration        Type
+		    Hardware address/
+		    User name
+172.16.20.21        0100.5079.6668.01       Oct 02 2026 06:29 PM    Automatic
+172.16.20.22        0100.5079.6668.05       Oct 02 2026 04:40 PM    Automatic
+172.16.50.21        0100.5079.6668.03       Oct 02 2026 02:29 PM    Automatic
+172.16.50.22        0100.5079.6668.07       Oct 02 2026 12:40 PM    Automatic
+R1#show ip dhcp pool
+
+Pool VLAN10-YONETIM :
+ Utilization mark (high/low)    : 100 / 0
+ Subnet size (first/next)       : 0 / 0 
+ Total addresses                : 254
+ Leased addresses               : 0
+ Pending event                  : none
+ 1 subnet is currently in the pool :
+ Current index        IP address range                    Leased addresses
+ 172.16.10.1          172.16.10.1      - 172.16.10.254     0
+
+Pool VLAN20-MUHASEBE :
+ Utilization mark (high/low)    : 100 / 0
+ Subnet size (first/next)       : 0 / 0 
+ Total addresses                : 254
+ Leased addresses               : 2
+ Pending event                  : none
+ 1 subnet is currently in the pool :
+ Current index        IP address range                    Leased addresses
+ 172.16.20.23         172.16.20.1      - 172.16.20.254     2
+
+Pool VLAN30-SATIS :
+ Utilization mark (high/low)    : 100 / 0
+ Subnet size (first/next)       : 0 / 0 
+ Total addresses                : 254
+ Leased addresses               : 0
+ Pending event                  : none
+ 1 subnet is currently in the pool :
+ Current index        IP address range                    Leased addresses
+ 172.16.30.1          172.16.30.1      - 172.16.30.254     0
+
+Pool VLAN50-MISAFIR :
+ Utilization mark (high/low)    : 100 / 0
+ Subnet size (first/next)       : 0 / 0 
+ Total addresses                : 254
+ Leased addresses               : 2
+ Pending event                  : none
+ 1 subnet is currently in the pool :
+ Current index        IP address range                    Leased addresses
+ 172.16.50.23         172.16.50.1      - 172.16.50.254     2
+R1#
+
+================================================================================
+DSW1#Show run interface Vlan50 | include helper
+ ip helper-address 10.1.0.1 
+DSW1#
+

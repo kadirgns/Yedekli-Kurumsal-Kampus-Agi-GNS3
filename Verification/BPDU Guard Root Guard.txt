@@ -1,0 +1,51 @@
+BPDU Guard / Root Guard
+
+ASW1#show spanning-tree summary | include Portfast|BPDU
+Portfast Default                        is edge
+Portfast Edge BPDU Guard Default        is enabled
+Portfast Edge BPDU Filter Default       is disabled
+ASW1# show errdisable recovery
+ErrDisable Reason            Timer Status
+-----------------            --------------
+arp-inspection               Disabled
+bpduguard                    Enabled
+channel-misconfig (STP)      Disabled
+dhcp-rate-limit              Disabled
+dtp-flap                     Disabled
+gbic-invalid                 Disabled
+inline-power                 Disabled
+l2ptguard                    Disabled
+link-flap                    Disabled
+mac-limit                    Disabled
+link-monitor-failure         Disabled
+loopback                     Disabled
+oam-remote-failure           Disabled
+pagp-flap                    Disabled
+port-mode-failure            Disabled
+pppoe-ia-rate-limit          Disabled
+psecure-violation            Enabled
+security-violation           Disabled
+sfp-config-mismatch          Disabled
+storm-control                Disabled
+udld                         Disabled
+unicast-flood                Disabled
+vmps                         Disabled
+psp                          Disabled
+dual-active-recovery         Disabled
+evc-lite input mapping fa    Disabled
+Recovery command: "clear     Disabled
+
+Timer interval: 300 seconds
+
+Interfaces that will be enabled at the next timeout:
+
+================================================================================
+DSW1#show spanning-tree interface Port-channel10 detail | include guard
+   Root guard is enabled on the port
+   Root guard is enabled on the port
+   Root guard is enabled on the port
+   Root guard is enabled on the port
+   Root guard is enabled on the port
+DSW1#
+
+

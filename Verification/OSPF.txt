@@ -1,0 +1,92 @@
+OSPF
+
+R1#show ip ospf neighbor
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+4.4.4.4           1   FULL/DR         00:00:35    10.1.0.10       FastEthernet2/0
+2.2.2.2           1   FULL/DR         00:00:33    10.1.0.6        FastEthernet1/1
+1.1.1.1           1   FULL/DR         00:00:33    10.1.0.2        FastEthernet1/0
+R1#
+==================================================================================
+R2#show ip ospf neighbor
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+3.3.3.3           1   FULL/BDR        00:00:39    10.1.0.9        FastEthernet0/0
+R2#
+==================================================================================
+DSW1#show ip ospf neighbor
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+3.3.3.3           1   FULL/BDR        00:00:39    10.1.0.1        GigabitEthernet0/0
+DSW1#
+=================================================================================
+R1#show ip protocols | include areas
+  Number of areas in this router is 2. 2 normal 0 stub 0 nssa
+R1#
+=================================================================================
+DSW1#Show ip ospf interface brief
+Interface    PID   Area            IP Address/Mask    Cost  State Nbrs F/C
+Vl50         1     10              172.16.50.2/24     1     DR    0/0
+Vl40         1     10              172.16.40.2/24     1     DR    0/0
+Vl30         1     10              172.16.30.2/24     1     DR    0/0
+Vl20         1     10              172.16.20.2/24     1     DR    0/0
+Vl10         1     10              172.16.10.2/24     1     DR    0/0
+Gi0/0        1     10              10.1.0.2/30        1     DR    1/1
+DSW1#
+================================================================================
+DSW1#show ip route ospf
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+
+Gateway of last resort is 10.1.0.1 to network 0.0.0.0
+
+O*E2  0.0.0.0/0 [110/1] via 10.1.0.1, 01:49:15, GigabitEthernet0/0
+      10.0.0.0/8 is variably subnetted, 4 subnets, 2 masks
+O        10.1.0.4/30 [110/2] via 10.1.0.1, 01:59:22, GigabitEthernet0/0
+O IA     10.1.0.8/30 [110/2] via 10.1.0.1, 01:59:12, GigabitEthernet0/0
+      172.16.0.0/16 is variably subnetted, 12 subnets, 2 masks
+O IA     172.16.110.0/24 [110/3] via 10.1.0.1, 01:54:59, GigabitEthernet0/0
+O IA     172.16.120.0/24 [110/3] via 10.1.0.1, 01:54:59, GigabitEthernet0/0
+DSW1#
+==================================================================================
+DSW2#show ip route ospf
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+
+Gateway of last resort is 10.1.0.5 to network 0.0.0.0
+
+O*E2  0.0.0.0/0 [110/1] via 10.1.0.5, 01:49:56, GigabitEthernet0/0
+      10.0.0.0/8 is variably subnetted, 4 subnets, 2 masks
+O        10.1.0.0/30 [110/2] via 10.1.0.5, 02:00:03, GigabitEthernet0/0
+O IA     10.1.0.8/30 [110/2] via 10.1.0.5, 01:59:58, GigabitEthernet0/0
+      172.16.0.0/16 is variably subnetted, 12 subnets, 2 masks
+O IA     172.16.110.0/24 [110/3] via 10.1.0.5, 01:55:40, GigabitEthernet0/0
+O IA     172.16.120.0/24 [110/3] via 10.1.0.5, 01:55:40, GigabitEthernet0/0
+DSW2#
+=================================================================================
+R1#show ip ospf database | include Summary
+		Summary Net Link States (Area 0)
+		Summary Net Link States (Area 10)
+R1#
+==================================================================================
+R2#show ip ospf interface brief       
+Interface    PID   Area            IP Address/Mask    Cost  State Nbrs F/C
+Fa0/0        1     0               10.1.0.10/30       1     DR    1/1
+Fa0/1.120    1     20              172.16.120.1/24    1     DR    0/0
+Fa0/1.110    1     20              172.16.110.1/24    1     DR    0/0
+R2#
+

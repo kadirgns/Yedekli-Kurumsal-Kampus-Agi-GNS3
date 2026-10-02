@@ -1,0 +1,41 @@
+Trunk
+
+
+DSW1#show interfaces trunk
+
+Port        Mode             Encapsulation  Status        Native vlan
+Po1         on               802.1q         trunking      999
+Po10        on               802.1q         trunking      999
+Po20        on               802.1q         trunking      999
+
+Port        Vlans allowed on trunk
+Po1         10,20,30,40,50
+Po10        10,20,30,40,50
+Po20        10,20,30,40,50
+
+Port        Vlans allowed and active in management domain
+Po1         10,20,30,40,50
+Po10        10,20,30,40,50
+Po20        10,20,30,40,50
+
+Port        Vlans in spanning tree forwarding state and not pruned
+Po1         10,20,30,40,50
+Po10        10,20,30,40,50
+Po20        10,20,30,40,50
+DSW1#
+===============================================================================
+ASW3#show interfaces trunk
+
+Port        Mode             Encapsulation  Status        Native vlan
+Gi0/0       on               802.1q         trunking      999
+
+Port        Vlans allowed on trunk
+Gi0/0       110,120
+
+Port        Vlans allowed and active in management domain
+Gi0/0       110,120
+
+Port        Vlans in spanning tree forwarding state and not pruned
+Gi0/0       110,120
+ASW3#
+

@@ -1,0 +1,21 @@
+Default Route
+
+DSW1#show ip route | include 0.0.0.0
+Gateway of last resort is 10.1.0.1 to network 0.0.0.0
+O*E2  0.0.0.0/0 [110/1] via 10.1.0.1, 02:06:47, GigabitEthernet0/0
+      10.0.0.0/8 is variably subnetted, 4 subnets, 2 masks
+DSW1#
+
+==============================================================================
+
+R2#show ip route | include 0.0.0.0
+Gateway of last resort is 10.1.0.9 to network 0.0.0.0
+     10.0.0.0/30 is subnetted, 3 subnets
+O*E2 0.0.0.0/0 [110/1] via 10.1.0.9, 02:07:16, FastEthernet0/0
+R2#
+
+================================================================================
+R1#show run | include default-information
+ default-information originate
+R1#
+

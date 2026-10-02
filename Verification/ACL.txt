@@ -1,0 +1,13 @@
+ACL
+
+DSW1#show access-lists MISAFIR-KISIT
+Extended IP access list MISAFIR-KISIT
+    10 permit udp any any eq bootps (11 matches)
+    20 permit udp any any eq bootpc
+    30 deny ip 172.16.50.0 0.0.0.255 172.16.0.0 0.0.255.255
+    40 deny ip 172.16.50.0 0.0.0.255 10.1.0.0 0.0.255.255
+    50 permit ip 172.16.50.0 0.0.0.255 any (2760 matches)
+DSW1#show run interface Vlan50 | include access-group
+ ip access-group MISAFIR-KISIT in
+DSW1#
+

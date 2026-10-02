@@ -1,0 +1,40 @@
+HSRP
+
+DSW1#show standby vlan 10      
+Vlan10 - Group 10 (version 2)
+  State is Active
+    2 state changes, last state change 02:02:14
+  Virtual IP address is 172.16.10.1
+  Active virtual MAC address is 0000.0c9f.f00a (MAC In Use)
+    Local virtual MAC address is 0000.0c9f.f00a (v2 default)
+  Hello time 3 sec, hold time 10 sec
+    Next hello sent in 1.472 secs
+  Preemption enabled
+  Active router is local
+  Standby router is 172.16.10.3, priority 100 (expires in 8.304 sec)
+  Priority 110 (configured 110)
+  Group name is "hsrp-Vl10-10" (default)
+DSW1#
+ ===============================================================================
+ DSW2#show standby brief
+                     P indicates configured to preempt.
+                     |
+Interface   Grp  Pri P State   Active          Standby         Virtual IP
+Vl10        10   100   Standby 172.16.10.2     local           172.16.10.1
+Vl20        20   110 P Active  local           172.16.20.2     172.16.20.1
+Vl30        30   100   Standby 172.16.30.2     local           172.16.30.1
+Vl40        40   110 P Active  local           172.16.40.2     172.16.40.1
+Vl50        50   100   Standby 172.16.50.2     local           172.16.50.1
+DSW2#
+=================================================================================
+DSW1#show standby brief                                     
+                     P indicates configured to preempt.
+                     |
+Interface   Grp  Pri P State   Active          Standby         Virtual IP
+Vl10        10   110 P Active  local           172.16.10.3     172.16.10.1
+Vl20        20   100   Standby 172.16.20.3     local           172.16.20.1
+Vl30        30   110 P Active  local           172.16.30.3     172.16.30.1
+Vl40        40   100   Standby 172.16.40.3     local           172.16.40.1
+Vl50        50   110 P Active  local           172.16.50.3     172.16.50.1
+DSW1#
+

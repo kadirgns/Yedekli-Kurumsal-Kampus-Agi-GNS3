@@ -1,0 +1,83 @@
+Interface
+
+DSW1#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet0/0     10.1.0.2        YES manual up                    up      
+GigabitEthernet0/1     unassigned      YES unset  up                    up      
+GigabitEthernet0/2     unassigned      YES unset  up                    up      
+GigabitEthernet0/3     unassigned      YES unset  up                    up      
+GigabitEthernet1/0     unassigned      YES unset  down                  down    
+GigabitEthernet1/1     unassigned      YES unset  down                  down    
+GigabitEthernet1/2     unassigned      YES unset  down                  down    
+GigabitEthernet1/3     unassigned      YES unset  down                  down    
+GigabitEthernet2/0     unassigned      YES unset  up                    up      
+GigabitEthernet2/1     unassigned      YES unset  down                  down    
+GigabitEthernet2/2     unassigned      YES unset  down                  down    
+GigabitEthernet2/3     unassigned      YES unset  down                  down    
+GigabitEthernet3/0     unassigned      YES unset  up                    up      
+GigabitEthernet3/1     unassigned      YES unset  up                    up      
+GigabitEthernet3/2     unassigned      YES unset  down                  down    
+GigabitEthernet3/3     unassigned      YES unset  down                  down    
+Port-channel1          unassigned      YES unset  up                    up      
+Port-channel10         unassigned      YES unset  up                    up      
+Port-channel20         unassigned      YES unset  up                    up      
+Vlan10                 172.16.10.2     YES manual up                    up      
+Vlan20                 172.16.20.2     YES manual up                    up      
+Vlan30                 172.16.30.2     YES manual up                    up      
+Vlan40                 172.16.40.2     YES manual up                    up      
+Vlan50                 172.16.50.2     YES manual up                    up      
+DSW1#
+===============================================================================
+R1#show cdp neighbors
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater, P - Phone, 
+                  D - Remote, C - CVTA, M - Two-port Mac Relay 
+
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+DSW1.kampus.local
+                 Fas 1/0           139             R S I            Gig 0/0
+DSW2.kampus.local
+                 Fas 1/1           145             R S I            Gig 0/0
+ISP.kampus.local Fas 0/0           123             R S I  2691      Fas 0/0
+R2               Fas 2/0           174             R S I  3745      Fas 0/0
+R1#show vlan brief
+             ^
+% Invalid input detected at '^' marker.
+
+R1#show vlan
+% Ambiguous command:  "show vlan"
+R1#show ip interface brief
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            203.0.113.2     YES manual up                    up      
+FastEthernet1/0            10.1.0.1        YES manual up                    up      
+FastEthernet1/1            10.1.0.5        YES manual up                    up      
+FastEthernet2/0            10.1.0.9        YES manual up                    up      
+FastEthernet2/1            unassigned      YES NVRAM  up                    up      
+NVI0                       203.0.113.2     YES unset  up                    up      
+R1#
+================================================================================
+R2#show cdp neighbors
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater
+
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+ASW3.kampus.local
+                 Fas 0/1            179        R S I                Gig 0/0
+R1.kampus.local  Fas 0/0            171         R B       7206VXR   Fas 2/0
+R2#show ip interface brief
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            10.1.0.10       YES manual up                    up      
+Serial0/0                  unassigned      YES NVRAM  administratively down down    
+FastEthernet0/1            unassigned      YES NVRAM  up                    up      
+FastEthernet0/1.110        172.16.110.1    YES manual up                    up      
+FastEthernet0/1.120        172.16.120.1    YES manual up                    up      
+FastEthernet0/1.999        unassigned      YES unset  up                    up      
+Serial0/1                  unassigned      YES NVRAM  administratively down down    
+Serial0/2                  unassigned      YES NVRAM  administratively down down    
+FastEthernet1/0            unassigned      YES NVRAM  administratively down down    
+Serial2/0                  unassigned      YES NVRAM  administratively down down    
+Serial2/1                  unassigned      YES NVRAM  administratively down down    
+Serial2/2                  unassigned      YES NVRAM  administratively down down    
+Serial2/3                  unassigned      YES NVRAM  administratively down down    
+R2#
+==================================================================================

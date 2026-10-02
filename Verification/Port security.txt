@@ -1,0 +1,59 @@
+Port security
+
+ASW1#show port-security
+Secure Port  MaxSecureAddr  CurrentAddr  SecurityViolation  Security Action
+                (Count)       (Count)          (Count)
+---------------------------------------------------------------------------
+      Gi0/2              2            1                  0         Restrict
+      Gi0/3              2            1                  0         Restrict
+      Gi1/0              2            0                  0         Restrict
+      Gi1/1              2            1                  0         Restrict
+---------------------------------------------------------------------------
+Total Addresses in System (excluding one mac per port)     : 0
+Max Addresses limit in System (excluding one mac per port) : 4096
+ASW1#show port-security address
+               Secure Mac Address Table
+-----------------------------------------------------------------------------
+Vlan    Mac Address       Type                          Ports   Remaining Age
+                                                                   (mins)    
+----    -----------       ----                          -----   -------------
+  10    0050.7966.6800    SecureSticky                  Gi0/2        -
+  20    0050.7966.6801    SecureSticky                  Gi0/3        -
+  50    0050.7966.6803    SecureSticky                  Gi1/1        -
+-----------------------------------------------------------------------------
+Total Addresses in System (excluding one mac per port)     : 0
+Max Addresses limit in System (excluding one mac per port) : 4096
+ASW1#show port-security interface GigabitEthernet0/2
+Port Security              : Enabled
+Port Status                : Secure-up
+Violation Mode             : Restrict
+Aging Time                 : 10 mins
+Aging Type                 : Inactivity
+SecureStatic Address Aging : Disabled
+Maximum MAC Addresses      : 2
+Total MAC Addresses        : 1
+Configured MAC Addresses   : 0
+Sticky MAC Addresses       : 1
+Last Source Address:Vlan   : 0050.7966.6800:10
+Security Violation Count   : 0
+
+ASW1#show run interface GigabitEthernet0/2
+Building configuration...
+
+Current configuration : 458 bytes
+!
+interface GigabitEthernet0/2
+ switchport access vlan 10
+ switchport mode access
+ switchport nonegotiate
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky 0050.7966.6800
+ switchport port-security aging time 10
+ switchport port-security aging type inactivity
+ switchport port-security
+ negotiation auto
+ spanning-tree portfast edge
+end
+

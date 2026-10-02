@@ -1,0 +1,44 @@
+PING
+
+PC1> ==================================
+PC1> ping 172.16.10.1
+
+84 bytes from 172.16.10.1 icmp_seq=1 ttl=255 time=2.945 ms
+84 bytes from 172.16.10.1 icmp_seq=2 ttl=255 time=3.774 ms
+84 bytes from 172.16.10.1 icmp_seq=3 ttl=255 time=2.568 ms
+84 bytes from 172.16.10.1 icmp_seq=4 ttl=255 time=3.664 ms
+84 bytes from 172.16.10.1 icmp_seq=5 ttl=255 time=3.263 ms
+
+PC1> ping 172.16.10.12
+
+84 bytes from 172.16.10.12 icmp_seq=1 ttl=64 time=4.014 ms
+84 bytes from 172.16.10.12 icmp_seq=2 ttl=64 time=4.701 ms
+84 bytes from 172.16.10.12 icmp_seq=3 ttl=64 time=3.899 ms
+84 bytes from 172.16.10.12 icmp_seq=4 ttl=64 time=5.551 ms
+84 bytes from 172.16.10.12 icmp_seq=5 ttl=64 time=5.192 ms
+
+PC1> ping 172.16.110.11
+
+84 bytes from 172.16.110.11 icmp_seq=1 ttl=61 time=129.445 ms
+84 bytes from 172.16.110.11 icmp_seq=2 ttl=61 time=114.043 ms
+84 bytes from 172.16.110.11 icmp_seq=3 ttl=61 time=106.323 ms
+84 bytes from 172.16.110.11 icmp_seq=4 ttl=61 time=105.920 ms
+84 bytes from 172.16.110.11 icmp_seq=5 ttl=61 time=85.479 ms
+
+PC1> trace 172.16.110.11
+trace to 172.16.110.11, 8 hops max, press Ctrl+C to stop
+ 1   172.16.10.2   2.654 ms  1.896 ms  2.135 ms
+ 2   10.1.0.1   32.024 ms  39.387 ms  31.092 ms
+ 3   10.1.0.10   58.316 ms  58.680 ms  91.132 ms
+ 4   *172.16.110.11   89.810 ms (ICMP type:3, code:3, Destination port unreachable)
+
+===============================================================================
+PC9> ping 172.16.40.10
+
+84 bytes from 172.16.40.10 icmp_seq=1 ttl=61 time=104.458 ms
+84 bytes from 172.16.40.10 icmp_seq=2 ttl=61 time=106.032 ms
+84 bytes from 172.16.40.10 icmp_seq=3 ttl=61 time=74.786 ms
+84 bytes from 172.16.40.10 icmp_seq=4 ttl=61 time=65.016 ms
+84 bytes from 172.16.40.10 icmp_seq=5 ttl=61 time=76.252 ms
+
+

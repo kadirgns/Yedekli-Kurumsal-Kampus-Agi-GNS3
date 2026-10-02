@@ -1,0 +1,48 @@
+VLAN's
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Gi1/2, Gi1/3, Gi2/0, Gi2/1
+                                                Gi2/2, Gi2/3, Gi3/2, Gi3/3
+10   YONETIM                          active    Gi0/2
+20   MUHASEBE                         active    Gi0/3
+30   SATIS                            active    Gi1/0
+50   MISAFIR                          activ   Gi1/1
+1002 fddi-default                     act/unsup 
+1003 token-ring-default               act/unsup 
+1004 fddinet-default                  act/unsup 
+1005 trnet-default                    act/unsup 
+ASW1#
+
+=============================================================================
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Gi1/0, Gi1/1, Gi1/2, Gi1/3
+                                                Gi2/1, Gi2/2, Gi2/3, Gi3/2
+                                                Gi3/3
+10   YONETIM                          active    
+20   MUHASEBE                         active    
+30   SATIS                            active    
+40   IT-SUNUCU                        active    
+50   MISAFIR                          active    
+999  NATIVE-KULLANILMIYOR             active    
+1002 fddi-default                     act/unsup 
+1003 token-ring-default               act/unsup 
+1004 fddinet-default                  act/unsup 
+1005 trnet-default                    act/unsup 
+DSW1#
+================================================================================
+ASW3#show vlan brief
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Gi1/1, Gi1/2, Gi1/3, Gi2/0
+                                                Gi2/1, Gi2/2, Gi2/3, Gi3/0
+                                                Gi3/1, Gi3/2, Gi3/3
+110  VLAN0110                         active    Gi0/2, Gi0/3, Gi1/0
+120  VLAN0120                         active    Gi0/1
+1002 fddi-default                     act/unsup 
+1003 token-ring-default               act/unsup 
+1004 fddinet-default                  act/unsup 
+1005 trnet-default                    act/unsup 
+ASW3#

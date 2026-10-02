@@ -1,0 +1,48 @@
+SSHv2
+
+DSW1#telnet 10.1.0.6
+Trying 10.1.0.6 ... 
+% Connection refused by remote host
+
+DSW1#
+===============================================================================
+DSW1#ssh -l netadmin 10.1.0.6
+
+Password: 
+
+DSW2#
+===============================================================================
+DSW2#show ip ssh
+SSH Enabled - version 2.0
+Authentication methods:publickey,keyboard-interactive,password
+Authentication Publickey Algorithms:x509v3-ssh-rsa,ssh-rsa
+Hostkey Algorithms:x509v3-ssh-rsa,ssh-rsa
+Encryption Algorithms:aes128-ctr,aes192-ctr,aes256-ctr
+MAC Algorithms:hmac-sha1,hmac-sha1-96
+Authentication timeout: 60 secs; Authentication retries: 3
+Minimum expected Diffie Hellman key size : 1024 bits
+IOS Keys in SECSH format(ssh-rsa, base64 encoded): TP-self-signed-4294967295
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDKs5lkNYdEsAGN/aoG0PJpIT8j5y63WJySlrdS6NZm
+mWOHhs9zJM8ROQ/c+kxUPnESs4hCkwgNvM8VZ9TMseq/p0zdHMStL/sCrAEs0sZEqTCsytk4rNqULfXv
+dGYtuSzCN+hxAFgz0n8vQzdyu1NdVS+d5h5gJNjuD9xMEdH/MQ==                            
+DSW2#
+===============================================================================
+DSW2#show run | section line vty
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh
+DSW2#
+=================================================================================
+DSW2#show users
+    Line       User       Host(s)              Idle       Location
+   0 con 0                idle                 00:01:11   
+*  2 vty 0     netadmin   idle                 00:00:00 10.1.0.2
+
+  Interface    User               Mode         Idle     Peer Address
+
+DSW2#
+=============================================================================
+
