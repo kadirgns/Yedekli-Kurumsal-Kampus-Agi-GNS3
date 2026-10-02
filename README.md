@@ -6,7 +6,7 @@ kurulmuş, yedekliliğin gerçekten çalıştığı ölçülerek kanıtlanmış.
 **Ortam:** GNS3 · Cisco IOSvL2 15.2 (×5) · Cisco 7206VXR IOS 15.3 · Cisco 3745 IOS 12.4 ·
 Cisco 2691 IOS 12.4 · VPCS (×13) · Ubuntu Server (×1)
 
-![Topoloji](topology/Kurumsal-kampus-Ahı-Topoloji.png)
+![Topoloji](Kurumsal-kampus-Ahı-Topoloji.png)
 
 ---
 
