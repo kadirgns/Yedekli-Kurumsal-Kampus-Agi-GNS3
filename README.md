@@ -118,12 +118,12 @@ Misafir VLAN'ı iç kaynaklara erişemez, internete çıkabilir.
 
 | Test | Sonuç |
 |---|---|
-| PC4 (misafir) → 172.16.40.10 (sunucu) | ❌ engellendi |
-| PC4 → 172.16.10.11 (başka VLAN) | ❌ engellendi |
-| PC4 → 10.1.0.1 (router arayüzü) | ❌ engellendi |
-| PC4 → 8.8.8.8 (internet) | ✅ geçti |
-| PC1 (yönetim) → 172.16.40.10 | ✅ geçti |
-| PC8 → DHCP | ✅ adres aldı |
+| PC4 (misafir) → 172.16.40.10 (sunucu) | engellendi |
+| PC4 → 172.16.10.11 (başka VLAN) | engellendi |
+| PC4 → 10.1.0.1 (router arayüzü) | engellendi |
+| PC4 → 8.8.8.8 (internet) | geçti |
+| PC1 (yönetim) → 172.16.40.10 | geçti |
+| PC8 → DHCP | adres aldı |
 
 Engellenen ping'lerde dönen cevap sessiz bir zaman aşımı değil:
 
@@ -150,9 +150,9 @@ Satış VLAN'ı sunucuya ping atabilir, HTTP ile erişemez. Aynı kaynak, aynı 
 
 | Komut | Protokol/Port | Sonuç |
 |---|---|---|
-| `ping 172.16.40.10` | ICMP | ✅ geçti |
-| `ping 172.16.40.10 -P 6 -p 80` | TCP/80 | ❌ `code:13` |
-| `ping 172.16.40.10 -P 6 -p 22` | TCP/22 | ✅ geçti |
+| `ping 172.16.40.10` | ICMP | geçti |
+| `ping 172.16.40.10 -P 6 -p 80` | TCP/80 | `code:13` |
+| `ping 172.16.40.10 -P 6 -p 22` | TCP/22 | geçti |
 
 ```
 Extended IP access list SATIS-KISIT
@@ -207,7 +207,7 @@ Interface       Errdisable reason       Time left(sec)
 Gi1/2                  bpduguard          171
 ```
 
-### T4 — HSRP devralması ⭐
+### T4 — HSRP devralması 
 
 PC1'den saniyede bir ping atılırken DSW1 durduruldu.
 
